@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
 body {
     margin: 0;
     padding: 0;
@@ -14,12 +15,17 @@ body {
 .logo {
     font-size: 36px;
     font-weight: bold;
-    color: #ff0bd6;
-    text-transform: uppercase italic;
+    color: #d86b06;
+    text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
-    
-    
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: dotted;
+    font-family: "Grechen Fuemen", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container {
@@ -34,7 +40,7 @@ body {
 
 h2 {
     font-size: 24px;
-    color: #a529b1;
+    color: #c48808;
     margin-bottom: 20px;
 }
 
