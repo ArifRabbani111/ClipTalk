@@ -37,12 +37,17 @@ function displayResults(movies) {
     movies.forEach(movie => { // Loop through all movies instead of showing only one
         const movieCard = document.createElement('div');
         movieCard.classList.add('movie-card'); // Added CSS class for styling
+        //set background image to the movie poster
+        movieCard.style.backgroundImage = movie.poster_path 
+            ? `url('https://image.tmdb.org/t/p/w500${movie.poster_path}')`
+            : `url('placeholder.jpg')`; // Added placeholder image for movies without a poster
 
         movieCard.innerHTML = `
             <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
             <div class="movie-info">
                 <h3>${movie.title} (${movie.release_date ? movie.release_date.slice(0, 4) : 'N/A'})</h3>
                 <p>${movie.overview ? movie.overview.slice(0, 100) + '...' : 'No description available.'}</p>
+                <a href="https://www.themoviedb.org/movie/${movie.id}" target="_blank" class="details-link">View More</a>
             </div>
         `;
 
