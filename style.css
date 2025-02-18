@@ -100,13 +100,18 @@ button:hover {
 
 .movie-card {
     position: relative;
-    width: 300px;
+    width: 80%;
+    margin: 20px auto;
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    display: flex;
     height: 450px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     padding: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
@@ -126,11 +131,25 @@ button:hover {
 
 .movie-info {
     background: rgba(0, 0, 0, 0.7); /* Adds a dark overlay for readability */
-    padding: 15px;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
     width: 100%;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+}
+.details-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: orange;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.details-link:hover {
+    background: darkorange;
 }
 
 .movie-info h3 {
