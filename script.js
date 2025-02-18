@@ -17,6 +17,10 @@ document.getElementById('searchButton').addEventListener('click', async () => {
             throw new Error('Network response was not ok'); // Added error handling for network issues
         }
         const data = await response.json();
+
+        localStorage.setItem('movieResults', JSON.stringify(data.results));
+
+        window.location.href = 'results.html';
         
         displayResults(data.results); // Call function to show results
     } catch (error) {
@@ -38,9 +42,11 @@ function displayResults(movies) {
         const movieCard = document.createElement('div');
         movieCard.classList.add('movie-card'); // Added CSS class for styling
         //set background image to the movie poster
-        movieCard.style.backgroundImage = movie.poster_path 
-            ? `url('https://image.tmdb.org/t/p/w500${movie.poster_path}')`
-            : `url('placeholder.jpg')`; // Added placeholder image for movies without a poster
+        if (movie.poster_path) {
+            movieCard.style.backgroundImage = `url('https://image.tmdb.org/t/p/w500${movie.poster_path}')`;
+        } else {
+            movieCard.style.backgroundColor = '#333'; // Fallback background color
+        }
 
         movieCard.innerHTML = `
             <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
