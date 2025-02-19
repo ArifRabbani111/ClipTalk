@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+
+/* General Body Styling */
+body {
+    background: url('bg.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+/* ClipTalk Logo */
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #d86b06;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: dotted;
+    font-family: "Grechen Fuemen", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Form Container */
+.container {
+    width: 80%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+/* Input Fields */
+input {
+    width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Button */
+button {
+    width: 70%;
+    padding: 10px;
+    background: rgba(139, 233, 16, 0.815);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgb(9, 165, 92);
+}
+
+/* Links */
+p a {
+    color: lightblue;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
