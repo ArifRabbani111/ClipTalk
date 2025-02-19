@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClipTalk - Search Results</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- ClipTalk Logo -->
+    <div class="logo">ClipTalk</div>
+
+    <!-- Search Results Container -->
+    <div class="container">
+        <h2>Search Results</h2>
+        <div id="result"></div>
+    </div>
+
+    <!-- Go Back Button -->
+    <div class="button-container">
+        <button class="go-back" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script src="results.js"></script>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html"; // Redirects back to the main page
+        }
+    </script>
+</body>
+</html>
