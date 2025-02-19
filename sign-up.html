@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClipTalk - Sign Up</title>
+    <link rel="stylesheet" href="sign-up.css">
+</head>
+<body>
+    <div class="logo">ClipTalk</div>
+
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="email" id="signupEmail" placeholder="Enter Email Address" required>
+            <input type="text" id="signupUsername" placeholder="Enter Username" required>
+            <input type="password" id="signupPassword" placeholder="Enter Password" required>
+            <input type="password" id="signupConfirmPassword" placeholder="Re-type Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="sign-in.html">Sign In</a></p>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+            alert("Sign Up successful! (Backend needed for real account creation)");
+        });
+    </script>
+</body>
+</html>
