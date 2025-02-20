@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #0a50e6;
     background: url('bg.jpg') no-repeat center center/cover;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
 }
 
 /* ClipTalk Logo */
