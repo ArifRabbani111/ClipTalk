@@ -21,8 +21,19 @@
 
     <script>
         document.getElementById('signinForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert("Sign In successful! (Backend needed for real authentication)");
+            event.preventDefault(); // Prevent default form submission
+
+            const email = document.getElementById('signinEmail').value.trim();
+            const password = document.getElementById('signinPassword').value.trim();
+
+            if (email === '' || password === '') {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            // Simulating successful login
+            alert("Sign In successful! Redirecting...");
+            window.location.href = "dashboard.html"; // Redirect to a new page (create dashboard.html)
         });
     </script>
 </body>
