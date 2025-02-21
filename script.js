@@ -60,3 +60,22 @@ function displayResults(movies) {
         resultDiv.appendChild(movieCard); // Append each movie to the result div
     });
 }
+// Dark Mode Toggle Functionality
+const darkModeToggle = document.getElementById('darkModeToggle');
+
+// Check if dark mode is enabled in local storage
+if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+}
+
+// Event listener for dark mode toggle button
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    // Save the current mode in local storage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.removeItem('darkMode');
+    }
+});
