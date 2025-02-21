@@ -162,3 +162,25 @@ button:hover {
     font-size: 14px;
     opacity: 0.8;
 }
+button {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #121212;
+    color: #fff;
+}
+
+body.dark-mode button {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dark-mode-btn {
+    background-color: #fff;
+    color: #121212;
+}
