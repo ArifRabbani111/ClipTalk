@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+
+/* General Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('bg.jpg') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Logo */
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #d86b06;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: dotted;
+    font-family: "Grechen Fuemen", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Container */
+.container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Form */
+h2 {
+    margin-bottom: 15px;
+    color: #F4EFCA;
+}
+
+input {
+    width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    justify-content: center;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #ff9900;
+}
+
+/* Submit Button */
+button {
+    width: 70%;
+    padding: 10px ;
+    margin: 10px 0;
+    background: #9D1F15;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #02be31;
+}
+
+/* Sign In Link */
+p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+p a {
+    color: #d16806;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
