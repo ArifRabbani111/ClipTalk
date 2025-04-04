@@ -16,7 +16,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/signin", {
+      const response = await fetch("http://localhost:8000/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -26,7 +26,7 @@ const Login = () => {
       alert(data.message);
 
       if (response.status === 200) {
-        navigate("/dashboard");
+        navigate("/");
       }
     } catch (error) {
       alert("An error occurred. Please try again.");
