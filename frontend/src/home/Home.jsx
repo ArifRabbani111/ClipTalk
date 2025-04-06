@@ -19,47 +19,44 @@ const Home = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        // Ensure the URL corresponds to your backend correctly
-        const response = await fetch("http://localhost:8000/movies", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch("http://localhost:8000/movies?limit=20&page=1");
 
-        // Check for successful response
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        // Parse the JSON response from your API
         const data = await response.json();
         console.log("Fetched movies:", data);
-        setMovies(data);  // Store movies data in state
+        setMovies(data);
       } catch (err) {
         console.error("Error fetching movies:", err);
-        setError(err.message);  // Handle any error that occurs during fetch
+        setError(err.message);
       } finally {
-        setLoading(false);  // Loading is complete, no matter the outcome
+        setLoading(false);
       }
     };
 
     fetchMovies();
-  }, []); // Empty dependency array means this runs once when the component mounts
+  }, []);
 
   return (
     <div className="p-6 bg-gray-900 min-h-screen text-white">
       <h1 className="text-3xl font-bold mb-6">Movie List</h1>
 
-      {loading && <p className="text-gray-400">Loading movies...</p>}
+      {loading && (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="animate-pulse bg-gray-700 p-4 rounded-lg h-40" />
+          ))}
+        </div>
+      )}
+
       {error && <p className="text-red-500">Error: {error}</p>}
 
       {!loading && !error && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {movies.length > 0 ? (
-            movies.map((movie) => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))
+            movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
           ) : (
             <p className="text-gray-400">No movies found.</p>
           )}

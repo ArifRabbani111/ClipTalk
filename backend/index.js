@@ -8,21 +8,20 @@ const csvParser = require("csv-parser");
 
 const app = express();
 const port = 8000;
-const SECRET_KEY = "my_secret_key"; 
+const SECRET_KEY = "my_secret_key";
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Create MySQL connection
+// MySQL connection
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "MovieInventory", // Ensure database is used directly
+  database: "MovieInventory",
 });
 
-// Connect to MySQL
 connection.connect((err) => {
   if (err) {
     console.error("❌ Error connecting to MySQL:", err);
@@ -30,7 +29,6 @@ connection.connect((err) => {
   }
   console.log("✅ Connected to MySQL successfully!");
 
-  // Create users table if not exists
   const createUsersTableQuery = `
     CREATE TABLE IF NOT EXISTS users (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -47,7 +45,6 @@ connection.connect((err) => {
     console.log("✅ Table 'users' checked/created!");
   });
 
-  // Create movies table if not exists
   const createMoviesTableQuery = `
     CREATE TABLE IF NOT EXISTS movies (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -71,11 +68,26 @@ connection.connect((err) => {
       return;
     }
     console.log("✅ Table 'movies' checked/created!");
-    insertCSVData();
+
+    // Only insert CSV data if table is empty
+    const checkIfMoviesExist = `SELECT COUNT(*) as count FROM movies`;
+    connection.query(checkIfMoviesExist, (err, results) => {
+      if (err) {
+        console.error("❌ Error checking movie count:", err);
+        return;
+      }
+      const movieCount = results[0].count;
+      if (movieCount === 0) {
+        console.log("📥 No movies found. Inserting CSV data...");
+        insertCSVData();
+      } else {
+        console.log(`✅ ${movieCount} movies already in database. Skipping CSV import.`);
+      }
+    });
   });
 });
 
-// Function to insert CSV data into MySQL
+// Insert CSV data
 function insertCSVData() {
   const movies = [];
   fs.createReadStream("netflix_titles.csv")
@@ -118,7 +130,7 @@ function insertCSVData() {
     });
 }
 
-// **User Signup**
+// Signup
 app.post("/signup", (req, res) => {
   const { email, username, password } = req.body;
 
@@ -141,7 +153,7 @@ app.post("/signup", (req, res) => {
   });
 });
 
-// **User Login**
+// Signin
 app.post("/signin", (req, res) => {
   const { email, password } = req.body;
 
@@ -165,15 +177,20 @@ app.post("/signin", (req, res) => {
   });
 });
 
-// **Get All Movies**
+// Movies with pagination
 app.get("/movies", (req, res) => {
-  connection.query("SELECT * FROM movies", (err, results) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 20;
+  const offset = (page - 1) * limit;
+
+  const query = `SELECT * FROM movies LIMIT ? OFFSET ?`;
+  connection.query(query, [limit, offset], (err, results) => {
     if (err) return res.status(500).json({ error: "Failed to fetch movies" });
     res.json(results);
   });
 });
 
-// **Start Server**
+// Start server
 app.listen(port, () => {
   console.log(`🚀 Server running at http://localhost:${port}`);
 });

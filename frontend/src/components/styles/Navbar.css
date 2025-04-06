@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+
+/* Main navbar container */
+.navbar-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: transparent;
+    transition: all 0.3s ease-in;
+  }
+  
+  /* Sticky state */
+  .navbar-header.sticky {
+    background-color: #DAB894;
+  }
+  
+  /* Navbar padding */
+  .navbar-container {
+    padding: 1rem 1rem;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    .navbar-container {
+      padding: 1rem 6rem;
+    }
+  }
+  
+  /* Flex layout for nav content */
+  .navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  
+  /* Logo / Brand Title */
+  .logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #d86b06;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-family: "Grechen Fuemen", serif;
+    font-style: normal;
+  }
+  
+  /* Hide nav links on small screens */
+  .navbar-links {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-links {
+      display: flex;
+      gap: 3rem;
+    }
+  }
+  
+  /* Nav links (desktop) */
+  .navbar-link {
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #1d4ed8; /* Tailwind's blue-700 */
+  }
+  
+  /* Mobile menu icon wrapper */
+  .navbar-menu-icon {
+    display: block;
+  }
+  
+  /* Button for opening/closing menu */
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  /* Hamburger / close icons */
+  .menu-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  /* Mobile menu dropdown */
+  .mobile-menu {
+    display: none;
+    background-color: #000000;
+    padding: 1.75rem 1rem;
+    position: fixed;
+    top: 3.5rem; /* below navbar */
+    left: 0;
+    right: 0;
+    z-index: 40;
+  }
+  
+  .mobile-menu.active {
+    display: block;
+  }
+  
+  /* Nav links inside mobile menu */
+  .mobile-link {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 1rem;
+  }
+  
